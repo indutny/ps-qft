@@ -1,0 +1,231 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{slashed}
+
+\title{P\&S QFT - Problem 5.2}
+\author{Fedor Indutny}
+
+\begin{document}
+
+\maketitle
+
+\section{Solution}
+
+There are two diagrams that contribute at the first order: t-channel, and s-channel.
+Due to fermion exchange the signs of t-channel diagram is different from s-'channel's.
+Scattering amplitude is thus \textit{(spinor indices omitted)}:
+
+\begin{equation}
+  \begin{split}
+    {\cal{M}} & = \frac{i e^2}{t} \overline{u}(p') \gamma^\mu u(p)
+      \overline{v}(k) \gamma_\mu v(k') \\
+    & - \frac{i e^2}{s} \overline{u}(p') \gamma^\mu v(k')
+      \overline{v}(k) \gamma_\mu u(p)
+  \end{split}
+\end{equation}
+
+Squaring ${\cal{M}}$ and averaging/summing over spin indices we will get four
+terms:
+
+\begin{equation}
+  \begin{split}
+    \frac{1} {4} \sum_{spins} |{\cal{M}}|^2 =
+      \frac{e^4} {4} \Big ( \frac{(I)} {t^2} - \frac{(II)} {ts} -
+                                  \frac{(III)} {ts} + \frac{(IV)} {s^2} \Big )
+  \end{split}
+\end{equation}
+
+We'll express this in terms of Mandelstam variables, so it should be useful to evaluate
+them first (taking mass of electron to be $0$):
+
+\begin{equation}
+  \begin{split}
+    s &= (p + k)^2 = (p' + k')^2 \approx 2 p \cdot k =  2 p' \cdot k'\\
+    t &= (p' - p)^2 = (k' - k)^2 \approx -2 p \cdot p' = -2 k \cdot k' \\
+    u &= (k' - p)^2 = (p' - k)^2 \approx -2 p \cdot k' = -2 p' \cdot k
+  \end{split}
+\end{equation}
+
+\pagebreak
+
+First term \textit{(t-channel squared)}:
+
+\begin{equation}
+  \begin{split}
+    (I) & = \sum \overline{u}(p') \gamma^\mu u(p) \overline{v}(k) \gamma_\mu v(k')
+      \cdot \overline{v}(k') \gamma^\nu v(k) \overline{u}(p) \gamma_\nu u(p') \\
+    & = \sum \Big ( \overline{u}(p') \gamma^\mu u(p)
+                            \overline{u}(p) \gamma_\nu u(p') \Big )
+      \cdot \Big ( \overline{v}(k) \gamma_\mu v(k')
+                         \overline{v}(k') \gamma^\nu v(k) \Big ) \\
+    & = tr \Big [ \slashed{p'} \gamma^\mu \slashed{p} \gamma^\nu \Big ]
+      tr \Big [ \slashed{k} \gamma_\mu \slashed{k'} \gamma_\nu \Big ]
+  \end{split}
+\end{equation}
+
+This trace is going to be used for $(IV)$, let's compute it once and for both:
+
+\begin{equation}
+  \begin{split}
+    tr \Big [ \slashed{p'} \gamma^\mu \slashed{p} \gamma^\nu \Big ] & =
+      p'_\rho p_\sigma tr ( \gamma^\rho \gamma^\mu \gamma^\sigma \gamma^\nu ) \\
+    & = 4 p'_\rho p_\sigma ( g^{\rho \mu} g^{\sigma \nu} -
+                                          g^{\rho \sigma} g^{\mu \nu} +
+                                          g^{\rho \nu} g^{\mu \sigma}) \\
+    & = 4 (p^\mu p'^\nu + p^\nu p'^\mu - p \cdot p' g^{\mu \nu})
+  \end{split}
+\end{equation}
+
+Thus $(I)$ becomes:
+
+\begin{equation}
+  \begin{split}
+    (I) & = 16 (p^\mu p'^\nu + p^\nu p'^\mu - p \cdot p' g^{\mu \nu})
+                   (k_\mu k'_\nu + k_\nu k'_\mu - k \cdot k' g_{\mu \nu}) \\
+    & = 16 ( 2 p \cdot k p' \cdot k' + 2 p \cdot k' p' \cdot k -
+                  4 p \cdot p' k \cdot k' + 4 p \cdot p' k \cdot k' ) \\
+    & = 32 ( p \cdot k p' \cdot k' + p \cdot k' p' \cdot k ) \\
+    & = 8 ( s^2 + u^2 )
+  \end{split}
+\end{equation}
+
+Let's expand $(II)$ \textit{(t- and s- channels)}:
+
+\begin{equation}
+  \begin{split}
+    (II) & = \sum \overline{u}(p') \gamma^\mu u(p) \overline{v}(k) \gamma_\mu v(k')
+      \cdot \overline{u}(p) \gamma^\nu v(k) \overline{v}(k') \gamma_\nu u(p') \\
+    & = \sum \overline{u}(p') \gamma^\mu u(p) \overline{u}(p) \gamma^\nu v(k)
+      \overline{v}(k) \gamma_\mu v(k') \overline{v}(k') \gamma_\nu u(p') \\
+    & = tr \Big [ \slashed{p'} \gamma^\mu \slashed{p} \gamma^\nu
+                       \slashed{k} \gamma_\mu \slashed{k'} \gamma_\nu \Big ] \\
+    & = \textit{(After symbolic computation)} -32 p \cdot k' p' \cdot k \\
+    & = -8 u^2
+  \end{split}
+\end{equation}
+
+\pagebreak
+
+s- and t- channels:
+
+\begin{equation}
+  \begin{split}
+    (III) & = \sum \overline{u}(p') \gamma^\mu v(k') \overline{v}(k) \gamma_\mu u(p)
+      \cdot \overline{v}(k') \gamma^\nu v(k) \overline{u}(p) \gamma_\nu u(p') \\
+    & = \sum \overline{u}(p') \gamma^\mu v(k') \overline{v}(k') \gamma^\nu v(k)
+       \overline{v}(k) \gamma_\mu u(p) \overline{u}(p) \gamma_\nu u(p') \\
+    & = tr \Big [ \slashed{p'} \gamma^\mu \slashed{k'} \gamma^\nu
+      \slashed{k} \gamma_\mu \slashed{p} \gamma_\nu \Big ] \\
+    & = \textit{(After symbolic computation)} -32 p \cdot k' p' \cdot k \\
+    & = -8 u^2
+  \end{split}
+\end{equation}
+
+s- channel squared:
+
+\begin{equation}
+  \begin{split}
+    (IV) & = \sum \overline{u}(p') \gamma^\mu v(k') \overline{v}(k) \gamma_\mu u(p)
+      \cdot \overline{u}(p) \gamma^\nu v(k) \overline{v}(k') \gamma_\nu u(p') \\
+    & = \sum \Big ( \overline{u}(p') \gamma^\mu v(k')
+                    \overline{v}(k') \gamma_\nu u(p') \Big )
+       \cdot \Big ( \overline{v}(k) \gamma_\mu u(p) \overline{u}(p) \gamma^\nu v(k)
+         \Big ) \\
+    & = tr \Big [ \slashed{p'} \gamma^\mu \slashed{k'} \gamma_\nu \Big ]
+          tr \Big [ \slashed{k} \gamma_\mu \slashed{p} \gamma^\nu \Big ] \\
+    & = 32 ( p \cdot p' k \cdot k' + p \cdot k' p' \cdot k ) \\
+    & = 8 ( t^2 + u^2 )
+  \end{split}
+\end{equation}
+
+Combining all four:
+
+\begin{equation}
+  \begin{split}
+    \frac{1} {4} \sum_{spins} |{\cal{M}}|^2 & = 2 e^4 \Big (
+      \frac{( s^2 + u^2 )} {t^2} + 2 \frac{u^2} {ts} + \frac{t^2 + u^2} {s^2} \Big ) \\
+    & = 2 e^4 \Bigg [
+      u^2 \Big ( \frac{1}{t^2} + \frac{2}{ts} + \frac{1}{s^2} \Big ) +
+      \frac {s^2}{t^2} + \frac{t^2}{s^2} \Bigg ] \\
+    & = 2 e^4 \Bigg [
+      u^2 \Big ( \frac{1}{t} + \frac{1}{s} \Big )^2 +
+      \Big ( \frac{t} {s} \Big )^2  +
+      \Big ( \frac{s} {t} \Big )^2 \Bigg ]
+  \end{split}
+\end{equation}
+
+Differential cross-section is defined in (4.85) in P\&S:
+
+\begin{equation}
+  \begin{split}
+    \frac{d \sigma} {d \Omega} & = \frac{ |{\cal{M}}|^2 } { 64 \pi^2 E_{cm}^2 }  =
+        \frac{ |{\cal{M}}|^2 } { 16 \pi^2 4s } \\
+      & = \frac{2 e^4} {16 \pi^2 4s} \Bigg [
+      u^2 \Big ( \frac{1}{t} + \frac{1}{s} \Big )^2 +
+      \Big ( \frac{t} {s} \Big )^2  +
+      \Big ( \frac{s} {t} \Big )^2 \Bigg ] \\
+      & = \frac{\alpha^2} {2s} \Bigg [
+      u^2 \Big ( \frac{1}{t} + \frac{1}{s} \Big )^2 +
+      \Big ( \frac{t} {s} \Big )^2  +
+      \Big ( \frac{s} {t} \Big )^2 \Bigg ]
+  \end{split}
+\end{equation}
+
+Integrating it over azimuthal angle $\phi$:
+
+\begin{equation}
+\frac{d \sigma} {d \cos \theta} = \frac{\pi \alpha^2} {s} \Bigg [
+      u^2 \Big ( \frac{1}{t} + \frac{1}{s} \Big )^2 +
+      \Big ( \frac{t} {s} \Big )^2  +
+      \Big ( \frac{s} {t} \Big )^2 \Bigg ]
+\end{equation}
+
+\section{$\cos \theta$ dependence}
+
+To explore angular dependence we need to specialize the 4-vectors:
+
+\begin{equation}
+  \begin{split}
+    p & = (E, 0, 0, |\textbf{p}|) \\
+    k & = (E, 0, 0, -|\textbf{p}|) \\
+    p' &= (E, 0, \sin \theta |\textbf{p}|, \cos \theta |\textbf{p}| ) \\
+    k' &= (E, 0, -\sin \theta |\textbf{p}|, -\cos \theta |\textbf{p}| )
+  \end{split}
+\end{equation}
+
+This time let's expand Mandelstam variables in terms of $|\textbf{p}|$ and $\cos \theta$
+(assuming $s \approx 2|\textbf{p}|^2$):
+
+\begin{equation}
+  \begin{split}
+    t &= (p' - p)^2 = -2 |\textbf{p}|^2 ( 1 - \cos \theta ) \\
+    u &= (k' - p)^2 = -2 |\textbf{p}|^2 ( 1 + \cos \theta ) \\
+    t/s &= -1 + \cos \theta \\
+    u/s &= -1 - \cos \theta \\
+    u/t &= \frac{1 + \cos \theta} {1 - \cos \theta}
+  \end{split}
+\end{equation}
+
+Only $t$ and $u$ are dependent on $\cos \theta$. Putting them into differential cross
+section:
+
+\begin{equation}
+  \begin{split}
+    \frac{d \sigma} {d \cos \theta} & = \frac{\pi \alpha^2} {s} \Bigg [
+      \frac{u^2} {t^2} ( t/s + 1 )^2 +
+      \Big ( \frac{t} {s} \Big )^2  +
+      \Big ( \frac{s} {t} \Big )^2 \Bigg ] \\
+    & = \frac{\pi \alpha^2} {s} \Bigg [
+      \Big ( \frac{1 + \cos \theta} {1 - \cos \theta} \Big )^2 \cos^2 \theta +
+      ( 1 - \cos \theta )^2  +
+      \Big ( \frac{1} {1 - \cos \theta} \Big )^2 \Bigg ] \\
+    & = \frac{\pi \alpha^2} {s} \Bigg [
+      \frac{(1 + \cos \theta)^2 \cos^2 \theta +
+               (1 - \cos \theta)^4 + 1} {(1 - \cos \theta)^2}
+      \Bigg ]
+  \end{split}
+\end{equation}
+
+\end{document}

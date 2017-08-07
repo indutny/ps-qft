@@ -1,0 +1,224 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{slashed}
+
+\title{P\&S QFT - Chapter 2 problems}
+\author{Fedor Indutny}
+
+\begin{document}
+
+\maketitle
+
+\section*{2.1}
+
+\begin{equation}
+S = \int d^4 x \left( - \frac{1}{4} F_{\mu\nu} F^{\mu\nu} \right)
+\end{equation}
+
+\begin{equation}
+F_{\mu\nu} = \partial_\mu A_\nu - \partial_\nu A_\mu
+\end{equation}
+
+\paragraph*{(a)}
+
+Euler-Lagrange equations are:
+
+\begin{equation}
+\frac{\partial L}{\partial A_\nu} -
+  \partial_\mu \left( \frac{\partial L}{\partial \left( \partial_\mu A_\nu \right) } \right) = 0
+\end{equation}
+
+Thus:
+\begin{equation}
+\partial_\mu F^{\mu\nu} = 0
+\end{equation}
+
+Putting $E^i = -F^{0i}$ and $\epsilon^{ijk} B^k = -F^{ij}$:
+
+\begin{equation}
+0 = \partial_\mu F^{\mu0} = \partial_i E^i = \mathbf{\nabla} \cdot \mathbf{E}
+\end{equation}
+
+\begin{equation}
+0 = - \partial_\mu F^{\mu j} = - \partial_0 F^{0j} + \partial_i F^{ij} =
+\frac{\partial}{\partial t} \mathbf{E}^j - \left(\mathbf{\nabla} \times \mathbf{B} \right)^j
+\end{equation}
+
+Putting it all together:
+
+\begin{equation}
+\mathbf{\nabla} \cdot \mathbf{E} = 0
+\end{equation}
+
+\begin{equation}
+\mathbf{\nabla} \times \mathbf{B} = \frac{\partial}{\partial t} \mathbf{E}
+\end{equation}
+
+\pagebreak
+
+\paragraph*{(b)}
+
+From (2.17):
+
+\begin{equation}
+T^\mu_\nu \equiv
+  \frac{\partial {\cal{L}}}{\partial \left( \partial_\mu \phi \right) } \partial_\nu \phi -
+  {\cal{L}} \delta^\mu_\nu
+\end{equation}
+
+Now putting our Lagrangian to use:
+
+\begin{equation}
+\frac{\partial {\cal{L}}}{\partial \left( \partial_\mu A_\nu \right) } =
+  -F^{\mu\nu}
+\end{equation}
+
+Non-symmetric term of the tensor is:
+
+\begin{equation}
+-F^{\mu \rho} \partial_\nu A_\rho =
+  -F^{\mu \rho} F_{\nu \rho} - F^{\mu \rho} \partial_\rho A_\nu 
+\end{equation}
+
+Symmetrize:
+
+\begin{equation}
+\partial_\lambda K^{\lambda \mu \nu} =
+  \partial_\lambda \left( F^{\mu \lambda} A^\nu \right) =
+  F^{\mu \lambda} \partial_\lambda A^\nu
+\end{equation}
+
+\begin{equation}
+\hat{T}^{\mu \nu} = T^{\mu\nu} + \partial_\lambda K^{\lambda \mu \nu}
+  = - g_{\rho \sigma} F^{\mu \rho} F^{\nu \sigma} -
+    {\cal{L}} g^{\mu\nu}
+\end{equation}
+
+Which is obviously symmetric now! Working out some particular
+components:
+
+\begin{equation}
+\hat{T}^{00} = -g_{\rho \sigma} F^{0\rho} F^{0\sigma} - {\cal{L}} =
+  F^{0i} F^{0i} - {\cal{L}} = |\mathbf{E}|^2 - {\cal{L}}
+\end{equation}
+
+Let's see what ${\cal{L}}$ is:
+
+\begin{equation}
+{\cal{L}} = -\frac{1}{4} F^{\mu\nu} F_{\mu\nu} =
+  +\frac{1}{2} F^{0i} F^{0i} - \frac{1}{2} F^{ij} F^{ij} =
+  \frac{1}{2} \left( |\mathbf{E}|^2 - |\mathbf{B}|^2 \right)
+\end{equation}
+
+Finally:
+
+\begin{equation}
+\hat{T}^{00} =
+  \frac{1}{2} \left( |\mathbf{E}|^2 + |\mathbf{B}|^2 \right)
+\end{equation}
+
+Now about spatial components:
+
+\begin{equation}
+\hat{T}^{0i} = -g_{\rho \sigma} F^{0 \rho} F^{i \sigma} =
+  F^{0 j} F^{i j} = E^j \epsilon_{ijk} B^k =
+  \mathbf{E} \times \mathbf{B}
+\end{equation}
+
+\pagebreak
+
+\section*{2.2}
+
+\begin{equation}
+S = \int d^4 x \left(
+  \partial_\mu \phi^* \partial^\mu \phi - m^2 \phi^* \phi \right)
+\end{equation}
+
+\paragraph*{(a)}
+
+Conjugate momenta to $\phi(x)$ and $\phi^*(x)$ are of course:
+
+\begin{equation}
+\pi(x) =
+  \frac{\partial {\cal{L}}}
+    {\partial \left( \partial_0{\phi(x)} \right)} =
+  \partial^0 \phi^*(x)
+\end{equation}
+
+\begin{equation}
+\pi^*(x) =
+  \frac{\partial {\cal{L}}}
+    {\partial \left( \partial_0{\phi^*(x)} \right)} =
+  \partial^0 \phi(x)
+\end{equation}
+
+Canonical commutation relations:
+
+\begin{equation}
+[ \phi(x), \pi(y) ] \equiv i \delta^4 (x - y)
+\end{equation}
+
+\begin{equation}
+[ \phi^*(x), \pi^*(y) ] \equiv i \delta^4 (x - y)
+\end{equation}
+
+\textit{
+(All other commutators between $\phi$, $\phi*$, $\pi$, and $\pi*$ are
+zero).
+}
+
+Hamiltonian is:
+
+\begin{equation}
+\begin{split}
+H & =
+  \int d^3x \; \pi \partial_0 \phi + \pi^* \partial_0 \phi^8 -
+    {\cal{L}} \\
+  & =
+  \int d^3x \; 2 \pi \pi^* - \partial_0 \phi^* \partial^0 \phi +
+    \partial_i \phi^* \partial^i \phi + m^2 \phi^* \phi \\
+  & = \int d^3x \; \pi \pi^* +
+    \mathbf{\nabla} \phi^* \cdot \mathbf{\nabla} \phi +
+    m^2 \phi^* \phi
+\end{split}
+\end{equation}
+
+Heisenberg equation of motion:
+
+\begin{equation}
+\frac{\partial \phi}{\partial t} = i [ H, \phi ] =
+  \pi^*
+\end{equation}
+
+\begin{equation}
+\begin{split}
+\frac{\partial^2 \phi}{\partial t^2} & =
+  i[ H, \frac{\partial \phi}{\partial t} ] =
+  i[ H, \pi^*] \\
+  & = i \left[
+    \int d^3x \;
+      \mathbf{\nabla} \phi^*(x) \cdot \mathbf{\nabla} \phi(x) +
+      m^2 \phi^*(x) \phi(x),
+    \pi^*(y) \right] \\
+  & = i \left[
+    \int d^3x \;
+      -\phi^*(x) \cdot \mathbf{\nabla}^2 \phi(x),
+    \pi^*(y) \right] - m^2 \phi(y) \\
+  & = + \mathbf{\nabla}^2 \phi(y) - m^2 \phi(y)
+\end{split}
+\end{equation}
+
+Finally we get:
+
+\begin{equation}
+\left( \frac{\partial^2}{\partial t^2} - \mathbf{\nabla}^2 +
+  m^2 \right) \phi = 0
+\end{equation}
+
+Which is of course is the Klein-Gordon equation.
+
+\paragraph*{(b)}
+
+\end{document}
