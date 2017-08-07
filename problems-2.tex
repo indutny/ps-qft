@@ -164,10 +164,10 @@ Canonical commutation relations:
 [ \phi^*(x), \pi^*(y) ] \equiv i \delta^4 (x - y)
 \end{equation}
 
-\textit{
-(All other commutators between $\phi$, $\phi*$, $\pi$, and $\pi*$ are
-zero).
-}
+\textit{(All other commutators between $\phi$, $\phi*$, $\pi$, and
+$\pi*$ are zero). }
+
+\
 
 Hamiltonian is:
 
@@ -220,5 +220,75 @@ Finally we get:
 Which is of course is the Klein-Gordon equation.
 
 \paragraph*{(b)}
+
+Introduce creation and annihilation operators expansion for the
+fields:
+
+\begin{equation}
+\phi(x) = \int \frac{d^3p}{(2 \pi)^3}
+  \frac{1}{ \sqrt{ 2 E_\mathbf{p} } }
+  \left( a_\mathbf{p} e^{-i p \cdot x} +
+         b^\dagger_\mathbf{p} e^{i p \cdot x}
+         \right) \bigg\rvert_{p^0 = E_\mathbf{p}}
+\end{equation}
+
+\begin{equation}
+\phi^*(x) = \int \frac{d^3p}{(2 \pi)^3}
+  \frac{1}{ \sqrt{ 2 E_\mathbf{p} } }
+  \left( b_\mathbf{p} e^{-i p \cdot x} +
+         a^\dagger_\mathbf{p} e^{i p \cdot x}
+         \right) \bigg\rvert_{p^0 = E_\mathbf{p}}
+\end{equation}
+
+\begin{equation}
+\pi^*(x) = \frac{\partial}{\partial{t}} \phi(x) ; \;
+\pi(x) = \frac{\partial}{\partial{t}} \phi^*(x)
+\end{equation}
+
+With usual commutation relations:
+
+\begin{equation}
+[ a_\mathbf{p}, a^\dagger_\mathbf{p'} ] =
+  [ b_\mathbf{p}, b^\dagger_\mathbf{p'} ] =
+  (2 \pi)^3 \delta^3(\mathbf{p} - \mathbf{p}')
+\end{equation}
+
+\textit{(The rest of commutators are zero).}
+
+\
+
+Let's check canonical commutation relations between momenta and
+the fields (skipping the resolution of the momentum delta function,
+and assuming $x^0 = y^0$):
+
+\begin{equation}
+\begin{split}
+[ \phi(\mathbf{x}), \pi(\mathbf{y}) ] &
+  = \int \frac{d^3p}{(2\pi)^3}
+    \frac{1}{2 E_p} i E_p \left(
+    e^{ip \cdot (x - y)} + e^{ip \cdot (y - x)} \right) \\
+  & = i \delta^3 (\mathbf{x} - \mathbf{y})
+\end{split}
+\end{equation}
+
+\textit{(Similar result for $\phi^*$ and $\pi*$)}.
+
+\paragraph*{(c)} Skipping few infinities and canceling the terms
+where $p' = -p$:
+
+\begin{equation}
+\begin{split}
+Q & = \int d^3x \frac{i}{2} \left( \phi^* \pi^* - \pi \phi \right) \\
+  & = \int \frac{d^3p}{(2 \pi)^3}
+    \frac{1}{2}
+    \left(
+    	-b^\dagger_\mathbf{p} b_\mathbf{p} +
+    	a^\dagger_\mathbf{p} a_\mathbf{p}
+    \right)
+\end{split}
+\end{equation}
+
+The charges are $\frac{1}{2}$ and $-\frac{1}{2}$ for $a$ and $b$
+respectively.
 
 \end{document}
