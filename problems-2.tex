@@ -271,7 +271,7 @@ and assuming $x^0 = y^0$):
 \end{split}
 \end{equation}
 
-\textit{(Similar result for $\phi^*$ and $\pi*$)}.
+\textit{(Similar result holds for $\phi^*$ and $\pi*$ too)}.
 
 \paragraph*{(c)} Skipping few infinities and canceling the terms
 where $p' = -p$:
@@ -290,5 +290,80 @@ Q & = \int d^3x \frac{i}{2} \left( \phi^* \pi^* - \pi \phi \right) \\
 
 The charges are $\frac{1}{2}$ and $-\frac{1}{2}$ for $a$ and $b$
 respectively.
+
+\pagebreak
+
+\paragraph*{(d)}
+
+To see if the charge $Q^i$ is conserved, let's compute the commutator
+with $H$:
+
+\begin{equation}
+H = \sum_{a=1,2} \int d^3x \; \pi_a \pi_a^* +
+    \mathbf{\nabla} \phi_a^* \cdot \mathbf{\nabla} \phi_a +
+    m^2 \phi_a^* \phi_a
+\end{equation}
+    
+\begin{equation}
+Q^i = \int d^3x \frac{i}{2} \left(
+  \phi_a^* \left( \sigma^i \right)_{ab} \pi_b^* -
+  \pi_a \left( \sigma^i \right)_{ab} \phi_b
+  \right)
+\end{equation}
+
+\begin{equation}
+\frac{\partial}{\partial t} Q^i = i [ H, Q^i ]
+\end{equation}
+
+Now for commutators:
+
+\begin{equation}
+\int
+  [ \pi_c \pi^*_c, \; \phi^*_a \left(\sigma^i\right)_{ab} \pi^*_b ] =
+  \delta^{ac} \pi_c \left(\sigma^i\right)_{ab} \pi^*_b =
+  -i \pi_a \left(\sigma^i\right)_{ab} \pi^*_b
+\end{equation}
+
+\begin{equation}
+\int
+  [ \pi_c \pi^*_c, \; \pi_a \left(\sigma^i\right)_{ab} \phi_b ] =
+  -i \pi_a \left(\sigma^i\right)_{ab} \pi^*_b
+\end{equation}
+
+These are precisely the same and thus cancel each other. Next:
+
+\begin{equation}
+[ \nabla \phi^*_c \cdot \nabla \phi_c,
+  \; \phi^*_a \left(\sigma^i\right)_{ab} \pi^*_b] =
+  -i \phi^*_a \left(\sigma^i\right)_{ab} \nabla^2 \phi_b
+\end{equation}
+
+\textit{(...and the same term for conjugated part of Q)}.
+
+\
+
+Finally:
+
+\begin{equation}
+[ m^2 \phi^*_c \phi_c,
+  \; \phi^*_a \left(\sigma^i\right)_{ab} \pi^*_b ] =
+  i m^2 \phi^*_a \left(\sigma^i\right)_{ab} \phi_b
+\end{equation}
+  
+\textit{(...and the same term for conjugated part of Q)}.
+
+\
+
+Everything cancels out perfectly and we get:
+
+\begin{equation}
+\frac{\partial}{\partial t} Q^i = 0
+\end{equation}
+
+Commutators of different charges are:
+
+\begin{equation}
+[ Q^i, Q^j ] = 
+\end{equation}
 
 \end{document}
