@@ -360,10 +360,35 @@ Everything cancels out perfectly and we get:
 \frac{\partial}{\partial t} Q^i = 0
 \end{equation}
 
-Commutators of different charges are:
+Some intermediate steps before working out commutators of charges:
 
 \begin{equation}
-[ Q^i, Q^j ] = 
+\begin{split}
+& [ \phi^*_a \left(\sigma^i\right)_{ab} \pi^*_b,
+  \phi^*_c \left(\sigma^j\right)_{cd} \pi^*_d ] = \\
+& \; \; \phi^*_a \left(\sigma^i\right)_{ab} \pi^*_b
+    \phi^*_c \left(\sigma^j\right)_{cd} \pi^*_d -
+  \phi^*_c \left(\sigma^j\right)_{cd} \pi^*_d
+    \phi^*_a \left(\sigma^i\right)_{ab} \pi^*_b = \\
+& \; \; \phi^*_a \left(\sigma^i\right)_{ab} \pi^*_b
+    \phi^*_c \left(\sigma^j\right)_{cd} \pi^*_d +
+    i \phi^*_c \left(\sigma^j \sigma^i\right)_{cb} \pi^*_b - \\
+& \; \; \; \; \; \; \; \;
+    i \phi^*_a \left(\sigma^j\right)_{cd} \phi^*_c \pi^*_b
+      \left(\sigma^i\right)_{ab} \pi^*_d = \\
+& \; \;
+   \phi^*_c \left([ \sigma^j , \sigma^i ]\right)_{cb} \pi^*_b =
+   2 \epsilon_{ijk} \phi^*_a \left(\sigma^k\right)_{ab} \phi^*_b
+\end{split}
 \end{equation}
+
+The other term is a conjugate of this. Thus we get:
+
+\begin{equation}
+[ Q^i, Q^j] = 2 \epsilon_{ijk} Q^k
+\end{equation}
+
+Which means that the commutation relations of $Q^i$ are the same as of
+generators of Lie Algebra $su(2)$!
 
 \end{document}
