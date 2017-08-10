@@ -2,6 +2,7 @@
 
 \usepackage{amsmath}
 \usepackage{amsthm}
+\usepackage{amsfonts}
 \usepackage{slashed}
 
 \title{P\&S QFT - Chapter 2 problems}
@@ -389,6 +390,37 @@ The other term is a conjugate of this. Thus we get:
 \end{equation}
 
 Which means that the commutation relations of $Q^i$ are the same as of
-generators of Lie Algebra $su(2)$!
+generators of Lie Algebra $\mathfrak{su}(2)$!
+
+Generalizing this to $n$ complex scalar fields we see that one can
+form charges using the generators of $\mathfrak{su}(n)$ Lie algebra.
+
+\section*{(2.3)} 
+
+Given $(x - y)^2 = -r^2$ we can apply Lorentz transformation to make
+\hfill\break $x^3 - y^3 = r$, and the rest of the components zero.
+Thus:
+
+\begin{equation}
+\begin{split}
+& \int \frac{d^3p}{(2 \pi)^3} \frac{1}{2 E_p} e^{-i p \cdot (x - y)} =
+  \int \frac{d^3p}{(2 \pi)^3} \frac{1}{2 \sqrt{\mathbf{p}^2 + m^2}}
+    e^{i p^3 r } = \\
+& \; \; \int_0^\pi d\theta \int_0^\infty dq \;
+  \frac{q^2 \sin{\theta}}{(2 \pi)^2} \frac{1}{2 \sqrt{q^2 + m^2}}
+  e^{i q r \cos{\theta} } = \\
+& \; \; \int_0^\infty dq \;
+  \frac{q^2}{(2 \pi)^2} \frac{1}{2 \sqrt{q^2 + m^2}}
+  \int_{-1}^1 d\cos{\theta} \; e^{i q r \cos{\theta} } = \\
+& \; \; \int_0^\infty dq \;
+  \frac{q^2}{(2 \pi)^2} \frac{1}{2 \sqrt{q^2 + m^2}}
+  \frac{1}{i q r} \left( e^{iqr} - e^{-iqr} \right) = \\
+& \; \; \frac{-i}{2 (2 \pi)^2 r} \int_{-\infty}^{+\infty} dq \;
+  \frac{q e^{iqr}}{\sqrt{q^2 + m^2}} =
+-\frac{m}{(2 \pi)^2 r} K'_0(rm)
+\end{split}
+\end{equation}
+
+
 
 \end{document}
