@@ -64,7 +64,7 @@ Now:
 Thus:
 
 \begin{equation}
-[ L^i, L^j ] = i \epsilon_{ijk} L^k
+[ L^i, L^j ] = i \epsilon^{ijk} L^k
 \end{equation}
 
 \pagebreak
@@ -90,6 +90,135 @@ Commutator of two boosts:
 \begin{equation}
 [ K^i, K^j ] = [ J^{0i}, J^{0j} ] =
 -i J^{ij} = - i \epsilon^{ijk} L^k
+\end{equation}
+
+Combinations:
+
+\begin{equation}
+\mathbf{J}_+ = \frac{1}{2} \left( \mathbf{L} + i \mathbf{K} \right)
+\end{equation}
+
+\begin{equation}
+\mathbf{J}_- = \frac{1}{2} \left( \mathbf{L} - i \mathbf{K} \right)
+\end{equation}
+
+Commutator of combinations:
+
+\begin{equation}
+\begin{split}
+[ J_+^i, J_-^j ] & = \frac{1}{4} [ L^i + i K^i, L^j - i K^j ] \\
+& = \frac{1}{4} \left( [ L^i, L^j ] + [ K^i, K^j ] +
+  i [ K^i, L^j ] + i [ K^j, L^i ] \right) \\
+& = \frac{1}{4} \left(
+  i \epsilon^{ijk} L^k - i \epsilon^{ijk} L^k +
+  i \epsilon^{ijk} K^k - i \epsilon^{ijk} K^k \right) = 0
+\end{split}
+\end{equation}
+
+Commutator of the components of $J_+$:
+\begin{equation}
+\begin{split}
+[ J_+^i, J_+^j ] & = \frac{1}{4} \left( [ L^i, L^j ] - [ K^i, K^j ] +
+  i [ K^i, L^j ] - i [ K^j, L^i ] \right) \\
+& = \frac{i}{4} \left(
+  \epsilon^{ijk} L^k + \epsilon^{ijk} L^k + i \epsilon^{ijk} K^k +
+  i \epsilon^{ijk} K^k
+\right) \\
+& = i \epsilon^{ijk} J_+^k
+\end{split}
+\end{equation}
+
+Similar result holds for $\mathbf{J}_-$.
+
+\pagebreak
+
+\paragraph*{(b)} For spin $\frac{1}{2}$ representations
+$\mathbf{J} = \frac{\boldsymbol{\sigma}}{2}$. Since $\mathbf{J}_+$ and
+$\mathbf{J}_-$ commute the states in the Lorentz group representation
+naturally decouple into a tensor product of eigenstates of
+$\mathbf{J}_+$ and $\mathbf{J}_-$.
+
+For $(j_+, j_-) = (\frac{1}{2}, 0)$ representation:
+
+\begin{equation}
+\mathbf{L} = \mathbf{J}_+ + \mathbf{J}_- =
+  \frac{\boldsymbol{\sigma}}{2}
+\end{equation}
+
+\begin{equation}
+\mathbf{K} = \frac{1}{i} \left( \mathbf{J}_+ - \mathbf{J}_- \right) =
+  \frac{\boldsymbol{\sigma}}{2i}
+\end{equation}
+
+Thus $(\frac{1}{2}, 0)$ state transforms as:
+
+\begin{equation}
+\psi_L \rightarrow
+  \left(
+    1 - i \boldsymbol{\theta} \cdot \frac{\boldsymbol{\sigma}}{2} -
+    \boldsymbol{\beta} \cdot \frac{\boldsymbol{\sigma}}{2}
+  \right) \psi_L
+\end{equation}
+
+While $(0, \frac{1}{2})$ state transforms as:
+
+\begin{equation}
+\psi_R \rightarrow
+  \left(
+    1 - i \boldsymbol{\theta} \cdot \frac{\boldsymbol{\sigma}}{2} +
+    \boldsymbol{\beta} \cdot \frac{\boldsymbol{\sigma}}{2}
+  \right) \psi_R
+\end{equation}
+
+\paragraph*{(c)}
+
+\begin{equation}
+\boldsymbol{\sigma}^T = - \sigma^2 \boldsymbol{\sigma} \sigma^2
+\end{equation}
+
+The $(\frac{1}{2}, \frac{1}{2})$ matrix representation is essentially
+a dot product of the vector and $\sigma$:
+\begin{equation}
+\begin{pmatrix}
+V^0 + V^3 & V^1 - i V^2 \\
+V^1 + i V^2 & V^0 - V^3
+\end{pmatrix} = V^0 + \mathbf{V} \cdot \boldsymbol{\sigma} 
+\end{equation}
+
+To ease calculations define:
+\begin{equation}
+\boldsymbol{\tau} \equiv
+  \frac{1}{2} \left(
+    \boldsymbol{\beta} - i \boldsymbol{\theta} \right)
+\end{equation}
+
+Applying right transformation on the left:
+\begin{equation}
+\begin{split}
+\left(
+  1 +
+  \boldsymbol{\tau} \cdot \boldsymbol{\sigma}
+\right) \left( V^0 + \mathbf{V} \cdot \boldsymbol{\sigma} \right) =
+\left( V^0 + \boldsymbol{\tau} \cdot \mathbf{V} \right) +
+\left( V^0 \boldsymbol{\tau} + \mathbf{V} +
+  i \boldsymbol{\tau} \times \mathbf{V} \right) \cdot
+  \boldsymbol{\sigma}
+\end{split}
+\end{equation}
+
+Applying transposed left transformation on the right:
+
+\begin{equation}
+\begin{split}
+& \left(
+  \left( V^0 + \boldsymbol{\tau} \cdot \mathbf{V} \right) +
+  \left( V^0 \boldsymbol{\tau} + \mathbf{V} +
+  i \boldsymbol{\tau} \times \mathbf{V} \right) \cdot
+  \boldsymbol{\sigma}
+\right) \left(
+  1 + \sigma^2 \boldsymbol{\tau}^* \cdot \boldsymbol{\sigma} \sigma^2 \right) = \\
+& \left( V^0 + \boldsymbol{\tau} \cdot \mathbf{V} \right)
+\end{split}
 \end{equation}
 
 \end{document}
