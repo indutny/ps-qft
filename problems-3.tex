@@ -1,0 +1,95 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{slashed}
+
+\title{P\&S QFT - Chapter 3 problems}
+\author{Fedor Indutny}
+
+\begin{document}
+
+\maketitle
+
+\section*{3.1}
+
+\begin{equation}
+[ J^{\mu\nu}, J^{\rho\sigma} ] = i \left(
+  g^{\nu\rho} J^{\mu\sigma} - g^{\mu\rho} J^{\nu\sigma} -
+  g^{\nu\sigma} J^{\mu\rho} + g^{\mu\sigma} J^{\nu\rho}
+\right)
+\end{equation}
+
+\paragraph*{(a)}
+
+\begin{center}
+$L^i = \frac{1}{2} \epsilon^{ijk} J^{jk}$, $K^i = J^{0i}$
+\end{center}
+
+\begin{equation}
+\begin{split}
+[ L^i, L^j ] & =
+  \frac{1}{4} \epsilon^{ikl} \epsilon^{jmn} [ J^{kl}, J^{mn} ] \\
+  & = -\frac{i}{4} \epsilon^{ikl} \epsilon^{jmn} \left(
+    \delta^{lm} J^{kn} - \delta^{km} J^{ln} -
+    \delta^{ln} J^{km} + \delta^{kn} J^{lm}
+  \right) \\
+  & = \textit{(...renaming summation variables...)} \\
+  & = -\frac{i}{4} \left(
+    \epsilon^{ikl} \epsilon^{jln} -
+    \epsilon^{ilk} \epsilon^{jln} -
+    \epsilon^{ikl} \epsilon^{jnl} +
+    \epsilon^{ilk} \epsilon^{jnl}
+  \right) J^{kn} \\
+  & = -i \epsilon^{ikl} \epsilon^{jln} J^{kn} =
+  -i \epsilon^{lik} \epsilon^{lnj} J^{kn} =
+  -i \left( \delta^{in} \delta^{kj} - \delta^{ij} \delta^{kn} \right)
+    J^{kn} \\
+  & = -i \left( J^{ji} - \delta^{ij} J^{kk} \right) =
+    i J^{ij}
+\end{split}
+\end{equation}
+
+Now:
+
+\begin{equation}
+\epsilon^{ijk} L^k =
+  \frac{1}{2} \epsilon^{ijk} \epsilon^{klm} J^{lm} =
+  \frac{1}{2} \left(
+    \delta^{il} \delta^{jm} - \delta^{im} \delta^{lj}
+  \right) J^{lm} = J^{ij}
+\end{equation}
+
+Thus:
+
+\begin{equation}
+[ L^i, L^j ] = i \epsilon_{ijk} L^k
+\end{equation}
+
+\pagebreak
+
+Commutator of boost and rotation:
+
+\begin{equation}
+\begin{split}
+[ L^i, K^j ] & = \frac{1}{2} \epsilon^{ikl} [ J^{kl}, J^{0j} ] =
+  \frac{i}{2} \epsilon^{ikl} \left(
+    g^{l0} J^{kj} - g^{k0} J^{lj} - g^{lj} J^{k0} + g^{kj} J^{l0}
+  \right) \\
+& = \frac{i}{2} \epsilon^{ikl}
+  \left( g^{lj} K^k - g^{kj} K^l \right) =
+  -\frac{i}{2}
+  \left( \epsilon^{ikj} K^k - \epsilon^{ijl} K^l \right) \\
+& = i \epsilon^{ijk} K^k
+\end{split}
+\end{equation}
+
+Commutator of two boosts:
+
+\begin{equation}
+[ K^i, K^j ] = [ J^{0i}, J^{0j} ] =
+-i J^{ij} = - i \epsilon^{ijk} L^k
+\end{equation}
+
+\end{document}
